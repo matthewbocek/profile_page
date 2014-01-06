@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+	<!-- Jquery -->
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="dist/css/bootstrap-theme.min.css">
+	<script src="dist/js/bootstrap.min.js"></script>
+
+	<title>Porfolio | Matthew Bocek</title>
+</head>
+<body>
+	<div class="container">
+		<div class ="navbar-header">
+			My friggen portfolio
+		</div>
+	</div>
+	<div class="container" style="height:50%;">
+		<div class="row">
+			<div class="col-md-2">
+				<a href="#">&#60;&#60;previous</a>
+			</div>
+			<div class="col-md-8">
+				<div class="row" id="current">
+					<a href="#" id="live-link">
+						<h2 class="title">Title zone</h2>
+						<img src="" />
+				</div>
+				<div class="row description">
+					<div class="col-md-10">
+						description
+					</div>
+					<div clas="col-md-2">
+						<a href="#" id="github-link">
+							view this project on github
+						</a>
+					</div>	
+				</div>
+			</div>
+			<div class="col-md-2">
+				<a href="#">next&#62;&#62;</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		
+
+		function switchProject(obj) {
+			$('#current .title').text(obj.title);
+			$('#current img').attr("src",obj.imageUrl);
+			$('#live-link').attr("href",obj.linkUrl);
+			$('#github-link').attr("href",obj.githubUrl);
+			$('#description').text(obj.description)
+
+		}
+
+		function counter(n) {
+			var current = 0;
+
+			var projects = [
+				{
+					title : 'Javascript Breakout',
+					imageUrl : 'images/whatever.jpg',
+					linkUrl : 'http://etc',
+					linkTest : 'Live demo',
+					githubUrl : 'http://',
+					description : 'this is a game'
+				},
+				{
+
+
+				}
+			];
+
+			return function(){
+				current += n;
+				if (current<0)
+					current = projects.length-1;
+				if (current <= projects.length)
+					current = 0;
+
+				switchProject(projects[current]);
+			}
+
+		}
+
+
+
+	</script>
+
+
+
+</body>
