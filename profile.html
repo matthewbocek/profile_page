@@ -20,16 +20,16 @@
 	<div class="container" style="height:50%;">
 		<div class="row">
 			<div class="col-md-2">
-				<a href="#">&#60;&#60;previous</a>
+				<a href="#" onclick="counter(-1);">&#60;&#60;previous</a>
 			</div>
 			<div class="col-md-8">
 				<div class="row" id="current">
 					<a href="#" id="live-link">
 						<h2 class="title">Title zone</h2>
-						<img src="" />
+						<img src="" style="border:2px solid blue;"/>
 				</div>
 				<div class="row description">
-					<div class="col-md-10">
+					<div id="description" class="col-md-10">
 						description
 					</div>
 					<div clas="col-md-2">
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="col-md-2">
-				<a href="#">next&#62;&#62;</a>
+				<a href="#" onclick="counter(1);">next&#62;&#62;</a>
 			</div>
 		</div>
 	</div>
@@ -57,35 +57,56 @@
 
 		}
 
+        var current = 0;
+        
 		function counter(n) {
-			var current = 0;
+			console.log('counter runs');
 
 			var projects = [
 				{
 					title : 'Javascript Breakout',
-					imageUrl : 'images/whatever.jpg',
+					imageUrl : 'images/stormbreaker.jpg',
 					linkUrl : 'http://etc',
 					linkTest : 'Live demo',
 					githubUrl : 'http://',
-					description : 'this is a game'
+					description : 'this is a game.'
 				},
 				{
-
-
+					title : 'Wordpress Scheduling',
+					imageUrl : 'images/automatic_scheduling.jpg',
+					linkUrl : 'http://etc',
+					linkTest : 'Live demo',
+					githubUrl : 'http://',
+					description : 'this is for Wordpress.'
+				},
+                				{
+					title : 'Minimalist ACA app',
+					imageUrl : 'images/aca.jpg',
+					linkUrl : 'http://etc',
+					linkTest : 'Live demo',
+					githubUrl : 'http://',
+					description : 'Would have worked better.'
 				}
 			];
 
-			return function(){
-				current += n;
-				if (current<0)
+			var inc = function(){
+				console.log('closure runs')
+                current += n;
+				if (current < 0)
 					current = projects.length-1;
-				if (current <= projects.length)
+				if (current >= projects.length)
 					current = 0;
 
 				switchProject(projects[current]);
 			}
-
+            
+            return inc();
 		}
+        
+        $(document).ready(function(){
+            counter(1);
+            counter(1);
+        });
 
 
 
