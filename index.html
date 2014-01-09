@@ -10,73 +10,97 @@
 	<title>Porfolio | Matthew Bocek</title>
     
     <style type="text/css">
-        .btn {
-            width: 100%;
-            height: 46px;
-            font-size: 110%;
-        }
-		
-		.contact img {
-			height: 60px;
-		}
-		
-		.mail
         
+        .contact img, .control img {
+            width: 40px;
+        }
+        
+        .control a {
+            width: 100%;
+        }
+        
+        p.control {
+            padding-top: 0.5em;
+        }
     </style>
     
 </head>
 <body>
-	<div class="container" style="height:50%;">
-		<div class="row">
-            <a href="http://mbocek.comxa.com"><h1 class="col-md-6">Matt Bocek - web dev portfolio</h1>
-            <p class="col-md-6 contact " style="text-align:right">
-                <a href="http://www.mbocek_resume.pdf"><img src="images/resume.png"/></a>
-				<a href="http://www.github.com/matthewbocek"><img src="images/github-mark-32px.png"/></a>
-                <a href="http://www.linkedin.com/pub/matthew-bocek/26/482/a0b"></a>
-				<a href="mailto:mbocek@gmail.com" ><img src="images/mail.png"/></a>
-			</p>
+	<div class="container" style="">
+		<div class="row contact">
+            <a href="http://mbocek.comxa.com">
+                <h1 class="col-md-6">
+                    Matt Bocek - web dev portfolio
+                </h1>
+            </a>
+            <p class="col-md-1 col-md-offset-2">
+                <a class="btn btn-default" href="mbocek_resume.pdf">
+                    <img class="" src="images/resume.png"/>
+                </a>
+            </p>
+            <p class="col-md-1">
+                <a class="btn btn-default" href="http://www.github.com/matthewbocek">
+                    <img class="" src="images/GitHub-Mark-32px.png"/>
+                </a>
+            </p>
+            <p class="col-md-1">
+                <a class="btn btn-default" href="http://www.linkedin.com/pub/matthew-bocek/26/482/a0b">
+                    <img class=""  src="images/linkedin.png"/>
+                </a>
+            </p>
+            <p class="col-md-1">
+                <a class="btn btn-default" href="mailto:mbocek@gmail.com" >
+                        <img src="images/mail.png"/>
+                </a>
+            </p>
+
 
         </div>
         <div class="row">
-			<div class="col-md-8">
-				<div class="row" id="current">
-					<a href="#" class="live-link">
-						<!--<h2 class="title">Title zone</h2>-->
-						<img src="" style="border:2px solid blue;" class="viewer"/>
-				</div>
-			</div>
-            <div class="col-md-4">
+            <div class="col-md-6"><!--title & text column-->
                 <div class="row">
-                    <div class="col-md-6">
-                        <a href="#" onclick="counter(-1);" class="btn btn-info">&#60;&#60;previous</a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="#" onclick="counter(1);" class="btn btn-primary">next&#62;&#62;</a>
-                    </div>
+                    <h2 class="title col-md-12">
+                        Title zone
+                    </h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="title">Title zone</h2>
-                    </div>
+                    <p class="description col-md-12">
+                        description
+                    </p>
                 </div>
+            </div><!--end title & text column-->
+            <div class="col-md-6"><!--picture & controls column-->
                 <div class="row">
-                    <div class="col-md-12">
-                        <p class="description">description</p>
-                    </div>
-                </div>
-                <div class="row">
-                        <div class="col-md-6">
-                            <a href="#" class="github-link btn btn-default">
-                                <img src="images/github-mark-32px.png" style="" />
-                            </a>
-                        </div>
-                    <div class="col-md-6">
-                        <a href="#" class="live-link btn btn-default">
-                            live demo
+                    <div class="col-md-12">    
+                        <a href="#" class="live-link">
+                            <img src="" style="border:2px solid blue;width:100%;" class="viewer"/>
                         </a>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <h4 class="col-md-3 col-md-offset-3 text-right">
+                        View this project:
+                    </h4>
+                    <p class="col-md-3 control">
+                        <a href="#" class="live-link btn btn-default">
+                            live <br /> DEMO
+                        </a>
+                    </p>
+                    <p class="col-md-3 control">
+                        <a href="#" class="github-link btn btn-default">
+                            <img src="images/GitHub-Mark-32px.png" />
+                        </a>
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="col-md-6 control">
+                        <a href="#" onclick="counter(-1);" class="btn btn-info">&#60;&#60;previous</a>
+                    </p>
+                    <p class="col-md-6 control">
+                        <a href="#" onclick="counter(1);" class="btn btn-primary">next&#62;&#62;</a>
+                    </p>
+                </div>
+			</div><!--end picture & controls column-->
         </div>
     </div>
     
@@ -84,9 +108,12 @@
 		
 
 		function switchProject(obj) {
-			$('.title').text(obj.title);
+			console.log( $('.live-link').not(':has("img")') );
+            
+            $('.title').text(obj.title);
 			$('img.viewer').attr("src",obj.imageUrl);
 			$('.live-link').attr("href",obj.linkUrl);
+            $('.live-link').not(':has("img")').html(obj.linkText);
 			$('.github-link').attr("href",obj.githubUrl);
 			$('.description').html(obj.description)
 
@@ -102,9 +129,9 @@
 					title : 'Javascript Breakout',
 					imageUrl : 'images/stormbreaker.jpg',
 					linkUrl : 'http://etc',
-					linkText : 'Live demo',
+					linkText : 'live <br/> DEMO',
 					githubUrl : 'https://github.com/matthewbocek/Stormbreaker',
-					description : '<p>Stormbreaker is a breakout clone programmed in Javascript. Many other examples exist, but I wanted to challenge myself to build a version from scratch and see what issues emerged.</p><h4>Key Skills</h4><ul><li>detailed manipulation of JS object prototypes</li><li>retaining object encapsulation and scope</li><li>drawing in HTML5 canvas</li><ul><h4>Programming Challenges:</h4><p>This program features a relatively large number of interacting objects with different prototypes. It was a key learning experience for me in the values and limitations of subclassing-- originally, all visible elements shared a type "sprite" which subclassed into "paddle", "ball", "brick" and others. I planned for these types to share interface. As the program progressed, certain types, like the paddle, had less and less in common with other sprites, until the sprite prototype became meaningless. It\'s "default" behaviors were overridden in nearly every case.</p> <p>I solved this problem by regrouping objects so that only those with a common interface shared a prototype.</p> <h4>Gameplay</h4> <p>Breakout is  a good game because the style of gameplay changes naturally over the course of each level. You play very differently when the screen is full than you do when there are only one or two bricks left. This sort of dynamism is good, and both parts of the game (along with intermediate steps) can be fun. But the rate of change is not constant; the fewer bricks are left, the less frequently you destroy a brick and make a marginal change to the style of play.</p> <p>My solution to this was to introduce a new mechanic. Red lasers occasionally shoot from the top of the screen which help to destroy clustered bricks, but pose some risk if they hit your paddle. Lasers appear more often as your ball travels faster.</p> <p>When the screen is full of bricks, the ball\'s movement is unpredicable, which makes it hard to accelerate the ball and risky to dodge laser blasts, so they occur infrequently. When the screen is mostly clear of bricks, the ball travels along predictable paths, so you can focus on making it go faster to increase the number of laser blasts. This helps speed up the endgame by destroying isolated clusters of bricks and also gives the player another resource to manage when the game is otherwise becoming dull.</p>'
+					description : '<p>Stormbreaker is a breakout clone programmed in Javascript. Many other examples exist, but I wanted to challenge myself to build a version from scratch and see what issues emerged.</p><h4>Key Skills</h4><ul><li>detailed manipulation of JS object prototypes</li><li>retaining object encapsulation and scope</li><li>drawing in HTML5 canvas</li></ul><h4>Programming Challenges:</h4><p>This program features a relatively large number of interacting objects with different prototypes. It was a key learning experience for me in the values and limitations of subclassing-- originally, all visible elements shared a type "sprite" which subclassed into "paddle", "ball", "brick" and others. I planned for these types to share interface. As the program progressed, certain types, like the paddle, had less and less in common with other sprites, until the sprite prototype became meaningless. It\'s "default" behaviors were overridden in nearly every case.</p> <p>I solved this problem by regrouping objects so that only those with a common interface shared a prototype.</p> <h4>Gameplay</h4> <p>Breakout is  a good game because the style of gameplay changes naturally over the course of each level. You play very differently when the screen is full than you do when there are only one or two bricks left. This sort of dynamism is good, and both parts of the game (along with intermediate steps) can be fun. But the rate of change is not constant; the fewer bricks are left, the less frequently you destroy a brick and make a marginal change to the style of play.</p> <p>My solution to this was to introduce a new mechanic. Red lasers occasionally shoot from the top of the screen which help to destroy clustered bricks, but pose some risk if they hit your paddle. Lasers appear more often as your ball travels faster.</p> <p>When the screen is full of bricks, the ball\'s movement is unpredicable, which makes it hard to accelerate the ball and risky to dodge laser blasts, so they occur infrequently. When the screen is mostly clear of bricks, the ball travels along predictable paths, so you can focus on making it go faster to increase the number of laser blasts. This helps speed up the endgame by destroying isolated clusters of bricks and also gives the player another resource to manage when the game is otherwise becoming dull.</p>'
 
 				},
 				{
@@ -119,7 +146,7 @@
 					title : 'Minimalist ACA app',
 					imageUrl : 'images/aca.jpg',
 					linkUrl : 'http://etc',
-					linkText : 'Live demo',
+					linkText : 'live <br /> DEMO',
 					githubUrl : 'https://github.com/matthewbocek/affordableCareAct',
 					description :'<p>Before the launch of the Affordable Care Act, I worked on a proof-of-concept project for a Healthcare website that protected user\'s data simply by not storing it. Unfortunately, only a small part of the front end was even functional.</p><h4>Key skills:</h4><ul><li>manipulation of json objects through AJAX.</li><li>JQuery UI and animations</li></ul><h4>Programming Challenges:</h4><p>The process of selectively displaying JSON data as an html form was a very simple one with few challenges. One obstacle that we did encounter was how to represent questions that would affect other, later questions: for example, listing your dependent family members. In the end, I built a separate PerPersonQuestion object prototype that inherited heavily from the default Question object. If the project had continued, there doubtlessly would have needed to be other subtypes like this one.</p><h4>Explanation:</h4><p>Preliminary to the release of the final ACA guidelines, we anticipated a variety of forms and questions and wanted a system that would only ask questions that users needed to answer. As part of our commitment to maintaining user privacy, we also wanted every question to be skippable. The idea was that if there was information that you didn\'t feel comfortable typing into a browser for any reason, you could fill it in later by hand on a  mail-in form.</p>'
                     
