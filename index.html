@@ -126,7 +126,7 @@
 					imageUrl : 'images/stormbreaker.jpg',
 					linkUrl : 'demos/stormbreaker/stormbreaker.html',
 					linkText : 'live <br/> DEMO',
-					githubUrl : 'https://github.com/matthewbocek/Stormbreaker',
+					githubUrl : 'http://github.com/matthewbocek/Stormbreaker',
 					description : '<p>Stormbreaker is a breakout clone programmed in Javascript. Many other examples exist, but I wanted to challenge myself to build a version from scratch and see what issues emerged.</p><h4>Key Skills</h4><ul><li>detailed manipulation of JS object prototypes</li><li>retaining object encapsulation and scope</li><li>drawing in HTML5 canvas</li></ul><h4>Programming Challenges:</h4><p>This program features a relatively large number of interacting objects with different prototypes. It was a key learning experience for me in the values and limitations of subclassing-- originally, all visible elements shared a type "sprite" which subclassed into "paddle", "ball", "brick" and others. I planned for these types to share interface. As the program progressed, certain types, like the paddle, had less and less in common with other sprites, until the sprite prototype became meaningless. It\'s "default" behaviors were overridden in nearly every case.</p> <p>I solved this problem by regrouping objects so that only those with a common interface shared a prototype.</p> <h4>Gameplay</h4> <p>Breakout is  a good game because the style of gameplay changes naturally over the course of each level. You play very differently when the screen is full than you do when there are only one or two bricks left. This sort of dynamism is good, and both parts of the game (along with intermediate steps) can be fun. But the rate of change is not constant; the fewer bricks are left, the less frequently you destroy a brick and make a marginal change to the style of play.</p> <p>My solution to this was to introduce a new mechanic. Red lasers occasionally shoot from the top of the screen which help to destroy clustered bricks, but pose some risk if they hit your paddle. Lasers appear more often as your ball travels faster.</p> <p>When the screen is full of bricks, the ball\'s movement is unpredicable, which makes it hard to accelerate the ball and risky to dodge laser blasts, so they occur infrequently. When the screen is mostly clear of bricks, the ball travels along predictable paths, so you can focus on making it go faster to increase the number of laser blasts. This helps speed up the endgame by destroying isolated clusters of bricks and also gives the player another resource to manage when the game is otherwise becoming dull.</p>'
 
 				},
@@ -135,7 +135,7 @@
 					imageUrl : 'images/automatic_scheduling.jpg',
 					linkUrl : '#',
 					linkText : 'Sorry, no demo <br /> available',
-					githubUrl : 'https://github.com/matthewbocek/ChangeOverTime',
+					githubUrl : 'http://github.com/matthewbocek/ChangeOverTime',
 					description : '<p>This is an unofficial wordpress plugin that changes the appearance of posts based on the date.</p><h4>Key skills</h4><ul><li>Proactive anticipation of client needs</li><li>Integration with Wordpress-specific resources</li></ul><h4>Programming Challenges</h4><p>The key challenge of this project was to keep the user-facing part of the program simple. It was important that the extra date fields only appear on posts that need them, and that they be easy to enter. Most of the heavy lifting in this regard came from integrating with Advanced Custom Fields, and Wordpress plugin by Elliot Condon.</p><p>With the customer-facing part done, the rest of the program is essentially a big if-then block and a lot of Wordpress template parts. We eventually decided to implement the main list view as three separate loops, based on a request from our client to sort productions based on their status, rather than their Wordpress post date as is done by default.</p> <h4>Explanation</h4> <p>This is a code snippet from a custom Wordpress theme that I helped develop for a local theater company. The company wanted to list each of their productions (past and present) on their website, along with their current status.</p><p>Our initial spec called for the clients to change the status of each production by hand, so on opening night they would log into the website and change a play from "Coming Soon" to "Now Playing". Instead, I created a custom Post type with data fields for "Opening Date" and "Closing Date". Plays would automatically switch to a different appearance when their run started or ended. This logic could be easily extended with more categories, such as "day tickets go on sale".</p>'
 				},
                 {
@@ -143,10 +143,17 @@
 					imageUrl : 'images/aca.jpg',
 					linkUrl : 'demos/aca-app/index.html',
 					linkText : 'live <br /> DEMO',
-					githubUrl : 'https://github.com/matthewbocek/affordableCareAct',
+					githubUrl : 'http://github.com/matthewbocek/affordableCareAct',
 					description :'<p>Before the launch of the Affordable Care Act, I worked on a proof-of-concept project for a Healthcare website that protected user\'s data simply by not storing it. Unfortunately, only a small part of the front end was even functional.</p><h4>Key skills:</h4><ul><li>manipulation of json objects through AJAX.</li><li>JQuery UI and animations</li></ul><h4>Programming Challenges:</h4><p>The process of selectively displaying JSON data as an html form was a very simple one with few challenges. One obstacle that we did encounter was how to represent questions that would affect other, later questions: for example, listing your dependent family members. In the end, I built a separate PerPersonQuestion object prototype that inherited heavily from the default Question object. If the project had continued, there doubtlessly would have needed to be other subtypes like this one.</p><h4>Explanation:</h4><p>Preliminary to the release of the final ACA guidelines, we anticipated a variety of forms and questions and wanted a system that would only ask questions that users needed to answer. As part of our commitment to maintaining user privacy, we also wanted every question to be skippable. The idea was that if there was information that you didn\'t feel comfortable typing into a browser for any reason, you could fill it in later by hand on a  mail-in form.</p>'
                     
-				}
+				},
+                {
+                    title : 'LZR static website',
+					imageUrl : 'images/lzr.jpg',
+					linkUrl : 'demos/lzr/index.html',
+					linkText : 'live <br /> DEMO',
+					githubUrl : 'http://github.com/matthewbocek/affordableCareAct',
+					description :'<p>This is an old leftover school project. The design athesthic was trying to match the an old 90\'s site that I was remaking, and I think it came out pretty ugly. I\'m displaying it here because it demonstrates a baseline skill with HTML and CSS without using a framework.</p><h4>Key Skills:</h4><ul><li>HTML</li><li>CSS3</li><li>Embedded Audio/Video</li></ul>
 			];
 
 			var inc = function(){
